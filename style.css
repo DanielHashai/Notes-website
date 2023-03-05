@@ -1,0 +1,506 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background: black;
+    background: url(./assets/360_F_439015147_2N14azBhzzeaiGukbbxvKrvCRcuvFSp7.jpg) center center fixed;
+    background-size: cover;
+
+}
+
+.section-center {
+    display: grid;
+    background: white;
+    height: 450px;
+    width: max(450px, 30vw);
+    margin: 100px auto;
+}
+
+/* all of this dow here has to do with the postits container */
+.wrapper {
+    margin: 40px;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 265px);
+    gap: 100px;
+    filter: none;
+    transition: ease-in-out 0.3s;
+}
+
+.wrapper li {
+    position: relative;
+    height: 390px;
+    list-style: none;
+    background: #ffa;
+    border-radius: 0 0 0 13px;
+    padding: 20px;
+    box-shadow:
+        inset 0 -40px 40px rgba(0, 0, 0, 0.2),
+        inset 0 25px 10px rgba(0, 0, 0, 0.2),
+        0 5px 6px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.anima {
+    animation: fadeOut 2s;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.note:after {
+    content: "";
+    position: absolute;
+    background: #ffa;
+    box-shadow:
+        3px -2px 10px rgba(0, 0, 0, 0.2),
+        inset 15px -15px 15px rgba(0, 0, 0, 0.3);
+    bottom: 0;
+    left: 0;
+    border-bottom: 60px solid black;
+    border-right: 70px solid #ffa;
+
+}
+
+.note::before {
+    content: "";
+    position: absolute;
+    background: #ffa;
+    box-shadow:
+        3px -2px 10px rgba(0, 0, 0, 0.2),
+        inset 15px -15px 15px rgba(0, 0, 0, 0.3);
+    top: 0;
+    right: 0;
+    border-bottom: 20px solid #ffa;
+    border-right: 20px solid black;
+
+}
+
+
+.note p {
+    font-size: 20px;
+
+    text-align: center;
+    font-weight: bold;
+}
+
+.note span {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.bottom-content {
+
+    border-top: 1px dashed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    overflow-y: auto;
+    height: 150px;
+    width: 95%;
+    margin: 10px 5px;
+
+    padding: 5px;
+    text-align: justify;
+}
+
+.pin {
+    top: 0px;
+    left: 20px;
+    margin: 0 auto;
+    position: absolute;
+    height: 45px;
+    width: 45px;
+}
+
+.delete {
+    top: 5px;
+    right: 20px;
+    margin: 0 auto;
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    visibility: hidden;
+
+}
+
+.show-delete {
+    visibility: visible;
+}
+
+.note:hover {
+    cursor: pointer;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.note {
+    position: relative;
+}
+
+@font-face {
+    font-family: "myFont";
+    src: url("./assets/EraserRegular-DO1D.ttf");
+}
+
+
+.content::-webkit-scrollbar {
+    width: 16px;
+}
+
+.content::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background-color: #d4aa70;
+    border-radius: 100px;
+}
+
+.line {
+    background-image: linear-gradient(red 2px, transparent 0px);
+    background-size: 100% 1.2em;
+
+    /*
+    Display the content on top of the lines.
+    The line height must be the same as the background size defined above
+    */
+    background-position-y: 1.5rem;
+    line-height: 1.2em;
+}
+
+p {
+    width: 60%;
+    margin: 0 auto;
+
+}
+
+/* postits container until here */
+.shade {
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(150deg, rgba(0, 0, 0, 0.65), transparent);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+form {
+    position: relative;
+    width: 640px;
+    margin: 30px auto;
+    margin-bottom: 40px;
+    border: #ffa solid 12px;
+    border-top: #ffa solid 12px;
+    border-left: #ffa solid 12px;
+    border-bottom: #ffa solid 12px;
+    box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+    background-image: radial-gradient(circle at left 30%, rgba(34, 34, 34, 0.3), rgba(34, 34, 34, 0.3) 80px, rgba(34, 34, 34, 0.5) 100px, rgba(51, 51, 51, 0.5) 160px, rgba(51, 51, 51, 0.5)), linear-gradient(215deg, transparent, transparent 100px, #222 260px, #222 320px, transparent), radial-gradient(circle at right, #111, rgba(51, 51, 51, 1));
+    background-color: #333;
+    filter: none;
+    transition: ease-in 0.3s
+}
+
+
+
+#form {
+    padding: 70px 20px 20px;
+    padding-top: 0;
+}
+
+.bboard {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+label {
+    vertical-align: middle;
+    font-family: myFont;
+    font-size: 1.6em;
+    color: rgba(238, 238, 238, 0.7);
+}
+
+p:nth-of-type(5)>label {
+    vertical-align: top;
+}
+
+input,
+textarea {
+    vertical-align: middle;
+    padding-left: 10px;
+    background: none;
+    border: none;
+    font-family: myFont;
+    font-size: 1.6em;
+    color: rgba(238, 238, 238, 0.8);
+    line-height: .6em;
+    outline: none;
+}
+
+textarea {
+    height: 120px;
+    font-size: 1.4em;
+    line-height: 1em;
+    resize: none;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    color: rgba(238, 238, 238, 0.7);
+    line-height: 1em;
+    padding: 0;
+}
+
+input[type="submit"]:focus {
+    background: rgba(238, 238, 238, 0.2);
+    color: rgba(238, 238, 238, 0.2);
+}
+
+::-moz-selection {
+    background: rgba(238, 238, 238, 0.2);
+    color: rgba(238, 238, 238, 0.2);
+    text-shadow: none;
+}
+
+::selection {
+    background: rgba(238, 238, 238, 0.4);
+    color: rgba(238, 238, 238, 0.3);
+    text-shadow: none;
+}
+
+/* ending of chalkboard */
+
+/* down here is the modal popup */
+.blurr {
+    filter: blur(10px);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    place-items: center;
+    transition: var(--transition);
+    visibility: hidden;
+    z-index: -10;
+}
+
+.modal-container {
+    position: relative;
+    background: #ffa;
+    color: red;
+
+    padding: 150px;
+    border-radius: 20px;
+}
+
+/* OPEN/CLOSE MODAL */
+.open-modal {
+    visibility: visible;
+    z-index: 10;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    font-size: 6rem;
+    background: transparent;
+    border-color: transparent;
+    color: red;
+    cursor: pointer;
+
+}
+
+.close-btn:hover {
+    color: lightcoral;
+    transition: 0.5s linear;
+
+    transform: rotate(90deg);
+}
+
+.border-style {
+    box-shadow: 0px 0px 14px -3px #ffa;
+    border: 1.3px solid #ffa;
+    border-radius: 10px;
+
+}
+
+/* ..................................... */
+.btn-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#sticker {
+    width: 100px;
+    height: 90px;
+    transform: rotate(30deg);
+    margin: 0 auto;
+    top: 0;
+}
+
+#date {
+    font-family: none;
+}
+
+#time {
+    font-family: none;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+#addBtn {
+    font-size: 2.1em;
+    color: green;
+}
+
+#addBtn:hover {
+    color: lightgreen;
+    transition: 0.2s;
+}
+
+#clearBtn {
+    font-size: 2.1em;
+    color: red;
+}
+
+#clearBtn:hover {
+    color: lightcoral;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: "myTextFont";
+    src: url("./assets/ChalkBoard-jERd7.ttf");
+}
+
+@font-face {
+    font-family: "myTitleFont";
+    src: url("./assets/BloomingblusterdemoSolid-K7qEA.otf");
+}
+
+.fonty {
+    font-family: myTextFont;
+    font-size: x-large
+}
+
+.line {
+    font-size: xx-large;
+    font-family: myTextFont;
+
+}
+
+p {
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.edit-title {
+    overflow-y: auto;
+    height: 100px;
+}
+
+.edit-title::-webkit-scrollbar {
+    width: 16px;
+}
+
+.edit-title::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+
+.edit-title::-webkit-scrollbar-thumb {
+    background-color: #d4aa70;
+    border-radius: 100px;
+}
+
+@media screen and (max-width:705px) {
+    form {
+        width: 510px;
+    }
+}
+
+/* adjustible screen sizes */
+@media screen and (max-width:600px) {
+    form {
+        width: 480px;
+    }
+
+    .wrapper {
+        width: 265px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width:320px) {
+    form {
+        width: 310x;
+    }
+
+    .wrapper {
+        width: 265px;
+        margin: 0 auto;
+    }
+}
+
+.model-content {
+    color: red;
+}
+
+#warning {
+    width: 120px;
+    height: 110px;
+    margin: 50px auto;
+}
+
+#warning>img {
+    border: red 5px solid;
+    border-radius: 50%
+}
+
+h2 {
+    color: white;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    font-family: "myTitleFont";
+    margin-top: 15px;
+    align-self: center;
+}
+#clearBtn:hover{
+cursor: pointer;
+}
